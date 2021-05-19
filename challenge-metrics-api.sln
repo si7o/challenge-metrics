@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "challenge-metrics-api", "challenge-metrics-api\challenge-metrics-api.csproj", "{DAE1E70C-A0A8-412F-8760-7F64ABD6A50C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "challenge-metrics-api-tests", "challenge-metrics-api-tests\challenge-metrics-api-tests.csproj", "{B45B2476-8553-4280-A9E5-E1A8DD7FC582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAE1E70C-A0A8-412F-8760-7F64ABD6A50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE1E70C-A0A8-412F-8760-7F64ABD6A50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE1E70C-A0A8-412F-8760-7F64ABD6A50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE1E70C-A0A8-412F-8760-7F64ABD6A50C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45B2476-8553-4280-A9E5-E1A8DD7FC582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45B2476-8553-4280-A9E5-E1A8DD7FC582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45B2476-8553-4280-A9E5-E1A8DD7FC582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45B2476-8553-4280-A9E5-E1A8DD7FC582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {607A71CE-79FB-4955-A292-8F9923FF9F85}
+	EndGlobalSection
+EndGlobal
