@@ -33,7 +33,7 @@ namespace ChallengeMetricsApi.Controllers
         {
             var metrics = _metricsService.GetAll();
 
-            return _mapper.Map<List<MetricDto>>(metrics);
+            return Ok(_mapper.Map<List<MetricDto>>(metrics));
         }
 
         [HttpGet("{id}")]
