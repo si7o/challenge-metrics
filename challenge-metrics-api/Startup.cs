@@ -19,6 +19,8 @@ namespace ChallengeMetricsApi
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +31,20 @@ namespace ChallengeMetricsApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins(
+                                          "http://localhost:9001",
+                                          "http://localhost")
+                                        .WithMethods(
+                                          "GET",
+                                          "POST",
+                                          "OPTIONS");
+                                  });
+            });
             services.AddMapperProfiles();
             services.AddMetricsServices();
             services.AddSingleton<IConnectionFactory>(
@@ -72,6 +88,8 @@ namespace ChallengeMetricsApi
             });
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthorization();
 
