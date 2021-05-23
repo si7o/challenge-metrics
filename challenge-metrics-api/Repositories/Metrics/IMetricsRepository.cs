@@ -11,7 +11,7 @@ namespace ChallengeMetricsApi.Repositories.Metrics
     {
         public IEnumerable<Metric> GetAll();
 
-        public IEnumerable<Metric> Search(SearchParamsDto searchParams);
+        public IEnumerable<Metric> Filter(MetricsFilterDto filters);
 
         public Metric GetById(uint id);
 

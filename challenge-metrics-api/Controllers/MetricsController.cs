@@ -29,9 +29,18 @@ namespace ChallengeMetricsApi.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<MetricDto>> Get()
+        public ActionResult<IEnumerable<MetricDto>> Get([FromQuery] MetricsFilterDto filters)
         {
-            var metrics = _metricsService.GetAll();
+            IEnumerable<Metric> metrics;
+
+            if (filters.GetAll)
+            {
+                metrics = _metricsService.GetAll();
+            }
+            else
+            {
+                metrics = _metricsService.GetFiltered(filters);
+            }
 
             return Ok(_mapper.Map<List<MetricDto>>(metrics));
         }

@@ -1,12 +1,9 @@
 ﻿using ChallengeMetricsApi.Domain.Dtos;
 using ChallengeMetricsApi.Domain.Entities;
 using Dapper;
-using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ChallengeMetricsApi.Repositories.Metrics
 {
@@ -66,7 +63,7 @@ namespace ChallengeMetricsApi.Repositories.Metrics
             {
                 using var connection = _connectionFactory.CreateRead();
                 connection.Open();
-                var metric = connection.QuerySingleOrDefault<Metric>(MetricsQueries.SelectMetric, new { Id = id });               
+                var metric = connection.QuerySingleOrDefault<Metric>(MetricsQueries.SelectMetric, new { Id = id });
 
                 return metric;
             }
@@ -77,9 +74,21 @@ namespace ChallengeMetricsApi.Repositories.Metrics
             }
         }
 
-        IEnumerable<Metric> IMetricsRepository.Search(SearchParamsDto searchParams)
+        public IEnumerable<Metric> Filter(MetricsFilterDto filters)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var connection = _connectionFactory.CreateRead();
+                connection.Open();
+                var metrics = connection.Query<Metric>(MetricsQueries.SelectMetricsFiltered, filters);
+
+                return metrics;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting Metrics");
+                return default;
+            }
         }
 
 

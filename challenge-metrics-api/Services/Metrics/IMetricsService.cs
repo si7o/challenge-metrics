@@ -9,6 +9,6 @@ namespace ChallengeMetricsApi.Services.Metrics
         public Metric Create(MetricCreateDto metric);
         public IEnumerable<Metric> GetAll();
         public Metric GetById(uint id);
-        public IEnumerable<Metric> Search(SearchParamsDto searchParams);
+        public IEnumerable<Metric> GetFiltered(MetricsFilterDto filters);
     }
 }

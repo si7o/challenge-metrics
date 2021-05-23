@@ -26,9 +26,9 @@ namespace ChallengeMetricsApi.Services.Metrics
             return _repository.GetAll();
         }
 
-        public IEnumerable<Metric> Search(SearchParamsDto searchParams)
+        public IEnumerable<Metric> GetFiltered(MetricsFilterDto filters)
         {
-            return _repository.Search(searchParams);
+            return _repository.Filter(filters);
         }
 
         public Metric GetById(uint id)
