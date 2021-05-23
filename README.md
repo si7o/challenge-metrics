@@ -15,9 +15,17 @@ This has been testes using Git Bash for Windows
 
 Navigate to repo folder (`./challenge-metrics`) and run the following command:
 
-`. pipeline.local.sh`
+```bash
+. pipeline.local.sh
+```
 
-If the script fails, you can try "deploying" the API & UI manually
+To shutdown UI & API just run 
+
+```bash
+. pipeline.local.shutdown.sh
+```
+
+_If the pipeline fails, you can try "deploying" the API & UI manually_
 
 ### Run Manually
 
@@ -29,10 +37,14 @@ Assuming you dont have .net SDK, we will use docker to build & run the API.
 Open your terminal, navigate to the root folder of the application (`./challenge-metrics`) and run the following commands:
 
 Build .net API container
-`docker build -f "challenge-metrics-api\Dockerfile" --force-rm -t challengemetricsapi:dev "challenge-metrics-api"`
+```bash
+docker build -f "challenge-metrics-api\Dockerfile" --force-rm -t challengemetricsapi:dev "challenge-metrics-api"
+```
 
 Run Container
-`docker run -d -p 8080:80 --name challenge-metrics-api challengemetricsapi:dev`
+```bash
+docker run -d -p 8080:80 --name challenge-metrics-api challengemetricsapi:dev
+```
 
 The API will be running in http://localhost:8080/
 You can access http://localhost:8080/swagger/index.html to check API definition/documentation
