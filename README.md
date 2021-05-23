@@ -59,4 +59,4 @@ npm i
 npm run start
 ```
 
-The UI should be accessible in http://localhost:9001
+The UI should be accessible in http://localhost:3000
