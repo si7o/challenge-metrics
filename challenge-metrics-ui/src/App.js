@@ -4,7 +4,7 @@ import { CreateMetric, Metrics } from './pages'
 import { Header } from './components'
 import { MetricsContextProvider } from './context/metrics'
 
-function App() {
+function App () {
   return (
     <div className='App'>
       <Router>

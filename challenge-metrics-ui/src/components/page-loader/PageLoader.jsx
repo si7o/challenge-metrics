@@ -13,7 +13,8 @@ const PageLoader = (props) => {
     <div id='page-loader' className={classname}>
       <Logo spin='fast' size='large' />
       {children}
-    </div>)
+    </div>
+  )
 }
 
 PageLoader.propTypes = {

@@ -28,7 +28,7 @@ const Metrics = (props) => {
 
       <Button onClick={handleRefreshClick}>Refresh</Button>
       <Timeline>
-        {timelineItems}
+        {metrics.length > 0 ? timelineItems : 'No metrics yet.'}
       </Timeline>
       <Button onClick={handleLoadMoreClick}>Load More</Button>
     </div>
