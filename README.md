@@ -1,4 +1,4 @@
-# The chllenge
+# The challenge
 
 **The challenge is to build a Frontend + Backend application that allows you to post and visualize metrics.** Each metric will have a timestamp, name, and value. The metrics will be shown in a timeline and must show averages per minute/hour/day and persisted in the database.
 
@@ -59,4 +59,4 @@ npm i
 npm run start
 ```
 
-The UI should be accessible in http://localhost:9001
+The UI should be accessible in http://localhost:3000
