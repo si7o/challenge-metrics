@@ -2,9 +2,10 @@ import React from 'react'
 import { Timeline, TimelineItem } from './components'
 import { useMetricsContext } from '../../context/metrics'
 import { Button } from '../../components'
+import PageLoader from '../../components/page-loader/PageLoader'
 
 const Metrics = (props) => {
-  const { metrics, isloading, fetchNewMetrics, fetchOlderMetrics } = useMetricsContext()
+  const { metrics, isLoading, fetchNewMetrics, fetchOlderMetrics } = useMetricsContext()
 
   const handleRefreshClick = () => fetchNewMetrics()
   const handleLoadMoreClick = () => fetchOlderMetrics()
@@ -20,7 +21,9 @@ const Metrics = (props) => {
 
   return (
     <div>
-      {isloading && 'loading...'}
+      <PageLoader show={isLoading}>
+        Loading metrics...
+      </PageLoader>
       <h3>Metrics</h3>
 
       <Button onClick={handleRefreshClick}>Refresh</Button>

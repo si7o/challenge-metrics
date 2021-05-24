@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import React, { useState } from 'react'
 import { Button } from '../../components'
+import PageLoader from '../../components/page-loader/PageLoader'
 import { useCreateMetricSubmit } from './sideEffects'
 import './styles.scss'
 
@@ -57,6 +58,7 @@ const CreateMetric = (props) => {
         )}
       </form>
 
+      <PageLoader show={isSubmitting}>Creating metric...</PageLoader>
     </div>
   )
 }

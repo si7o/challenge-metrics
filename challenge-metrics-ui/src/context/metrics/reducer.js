@@ -23,6 +23,7 @@ const reducer = (state, { type, payload }) => {
         metrics: metrics
       }
     }
+
     case METRICS_FETCH_START:
       return {
         ...state,

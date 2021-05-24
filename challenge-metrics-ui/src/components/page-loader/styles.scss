@@ -1,0 +1,25 @@
+.page-loader {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #18181883;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: white;
+  text-shadow: 0 0 4px #181818e7;
+  font-weight: 600;
+
+  transition: opacity .25s ease-in-out;
+  
+  &.show {
+    pointer-events: inherit;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+  }
+
+}

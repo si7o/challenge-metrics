@@ -19,9 +19,9 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     // load initial metrics
+    dispatch({ type: METRICS_FETCH_START })
     getMetrics()
       .then((metrics) => {
-        dispatch({ type: METRICS_FETCH_START })
         dispatch({ type: ADD_METRICS, payload: metrics })
       })
       .catch((e) => {

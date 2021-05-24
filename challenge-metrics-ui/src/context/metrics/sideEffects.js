@@ -8,7 +8,7 @@ import { ADD_METRICS, METRICS_FETCH_END, METRICS_FETCH_START, SET_ERROR_LOADING 
  */
 export const useMetricsContext = () => {
   const {
-    state: { metrics, isloading, error, hasError },
+    state: { metrics, isLoading, error, hasError },
     dispatch
   } = useContext(MetricsContext)
 
@@ -18,9 +18,10 @@ export const useMetricsContext = () => {
   const fetchNewMetrics = () => {
     const lastMetric = metrics[0]
 
+    dispatch({ type: METRICS_FETCH_START })
+
     getNewerMetrics(lastMetric?.createdAt)
       .then((metrics) => {
-        dispatch({ type: METRICS_FETCH_START })
         dispatch({ type: ADD_METRICS, payload: metrics })
       })
       .catch((e) => {
@@ -38,9 +39,9 @@ export const useMetricsContext = () => {
   const fetchOlderMetrics = () => {
     const oldestMetric = metrics[metrics.length - 1]
 
+    dispatch({ type: METRICS_FETCH_START })
     getOlderMetrics(oldestMetric?.createdAt)
       .then((metrics) => {
-        dispatch({ type: METRICS_FETCH_START })
         dispatch({ type: ADD_METRICS, payload: metrics })
       })
       .catch((e) => {
@@ -61,5 +62,5 @@ export const useMetricsContext = () => {
     dispatch({ type: ADD_METRICS, payload: [metric] })
   }
 
-  return { metrics, isloading, fetchNewMetrics, fetchOlderMetrics, addMetric, error, hasError }
+  return { metrics, isLoading, fetchNewMetrics, fetchOlderMetrics, addMetric, error, hasError }
 }
