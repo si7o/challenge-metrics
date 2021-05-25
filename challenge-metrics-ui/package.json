@@ -21,6 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:build": "react-scripts test --watchAll=false --noStackTrace --coverage",
     "eject": "react-scripts eject",
     "standard-check": "npx standard",
     "standard-fix": "npx standard --fix"
@@ -43,6 +44,12 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
+  },
   "standard": {
     "globals": [
       "jest",
@@ -60,5 +67,8 @@
     "ignore": [
       "/build"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.0"
   }
 }
