@@ -10,6 +10,8 @@ const Metrics = (props) => {
   const handleRefreshClick = () => fetchNewMetrics()
   const handleLoadMoreClick = () => fetchOlderMetrics()
 
+  const zeroMetrics = metrics.length === 0
+
   const timelineItems = metrics.map((metric) =>
     <TimelineItem
       key={metric.id}
@@ -30,7 +32,7 @@ const Metrics = (props) => {
       <Timeline>
         {metrics.length > 0 ? timelineItems : 'No metrics yet.'}
       </Timeline>
-      <Button onClick={handleLoadMoreClick}>Load More</Button>
+      <Button onClick={handleLoadMoreClick} disabled={zeroMetrics}>Load More</Button>
     </div>
   )
 }
