@@ -43,7 +43,7 @@ namespace challenge_metrics_api_tests
             var serviceResponseStub = fixture.CreateMany<Metric>();
             metricsServiceMock.Setup(x => x.GetAll()).Returns(serviceResponseStub);
 
-            var response = sut.Get();
+            var response = sut.Get(new MetricsFilterDto());
 
             Assert.IsType<OkObjectResult>(response.Result);
         }
@@ -54,7 +54,31 @@ namespace challenge_metrics_api_tests
             var serviceResponseStub = new List<Metric>();
             metricsServiceMock.Setup(x => x.GetAll()).Returns(serviceResponseStub);
 
-            var response = sut.Get();
+            var response = sut.Get(new MetricsFilterDto());
+
+            Assert.IsType<OkObjectResult>(response.Result);
+        }
+
+        [Fact]
+        public void GetFiltered_Metrics_returns_Ok_response()
+        {
+            var serviceResponseStub = fixture.CreateMany<Metric>();
+            metricsServiceMock.Setup(x => x.GetFiltered(It.IsAny<MetricsFilterDto>())).Returns(serviceResponseStub);
+            var filters = fixture.Create<MetricsFilterDto>();
+
+            var response = sut.Get(filters);
+
+            Assert.IsType<OkObjectResult>(response.Result);
+        }
+
+        [Fact]
+        public void GetFiltered_empty_Metrics_returns_Ok_response()
+        {
+            var serviceResponseStub = new List<Metric>();
+            metricsServiceMock.Setup(x => x.GetFiltered(It.IsAny<MetricsFilterDto>())).Returns(serviceResponseStub);
+            var filters = fixture.Create<MetricsFilterDto>();
+
+            var response = sut.Get(filters);
 
             Assert.IsType<OkObjectResult>(response.Result);
         }
