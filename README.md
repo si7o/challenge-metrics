@@ -19,44 +19,15 @@ Navigate to repo folder (`./challenge-metrics`) and run the following command:
 . pipeline.local.sh
 ```
 
+**The API will be running in `http://localhost:8091/`**
+
+**Check API definition/documentation `http://localhost:8091/swagger/index.html`**
+
+**UI should be running in `http://localhost:8090/`**
+
+
 To shutdown UI & API just run 
 
 ```bash
 . pipeline.local.shutdown.sh
 ```
-
-_If the pipeline fails, you can try "deploying" the API & UI manually_
-
-### Run Manually
-
-You can run the API(.NET Core 3.1) and UI(React) separately.
-
-#### Run API
-
-Assuming you dont have .net SDK, we will use docker to build & run the API.
-Open your terminal, navigate to the root folder of the application (`./challenge-metrics`) and run the following commands:
-
-Build .net API container
-```bash
-docker build -f "challenge-metrics-api\Dockerfile" --force-rm -t challengemetricsapi:dev "challenge-metrics-api"
-```
-
-Run Container
-```bash
-docker run -d -p 8080:80 --name challenge-metrics-api challengemetricsapi:dev
-```
-
-The API will be running in http://localhost:8080/
-You can access http://localhost:8080/swagger/index.html to check API definition/documentation
-
-#### Run UI
-
-Fastest way is to start the application using npm (or yarn).
-Navigate to `./challenge-metrics/challenge-metrics-ui` and run the following commands:
-
-```bash
-npm i
-npm run start
-```
-
-The UI should be accessible in http://localhost:3000
