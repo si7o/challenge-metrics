@@ -45,7 +45,14 @@ export const getOlderMetrics = async (dateTo) => {
  * @returns array of metrics
  */
 export const getNewerMetrics = async (dateFrom) => {
-  const response = await apiClient.get(`metrics/?dateFrom=${dateFrom}`)
+  let url
+  if (dateFrom) {
+    url = `metrics/?dateFrom=${dateFrom}`
+  }
+  else {
+    url = 'metrics'
+  }
+  const response = await apiClient.get(url)
 
   return response.data
 }
